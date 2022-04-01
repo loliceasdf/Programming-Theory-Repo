@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-
-    public GameObject player;
+    [SerializeField] List<Car> cars;
+    
     [SerializeField] Vector3 offset = new Vector3(0, 5, -7);
 
+    public int carSelectionId;
 
 
+    private void Awake()
+    {
+        Instantiate(cars[GameManager.Instance.selectedCar]);
+    }
     // Update is called once per frame
 
     //use LateUpdate() for Camera based movement.
     void LateUpdate()
     {
         // offset camera nbehind palyer and follow
-        transform.position = player.transform.position + offset;
-            ;
+        transform.position = Car.Instance.transform.position + offset;
+            
     }
 }
  
