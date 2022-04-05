@@ -5,18 +5,19 @@ using TMPro;
 
 public class Car : MonoBehaviour
 {
-    //Private variables
+  
    public static Car Instance { get; protected set; }
 
-    [SerializeField] float horsePower = 20000.0f;
+    protected float horsePower;
     [SerializeField] float speed;
     private float horizontalInput;
     private float verticalInput;
     protected Rigidbody playerRb;
     [SerializeField] List<Wheel> allWheels;
-    [SerializeField] int WheelsOnGround;
+    
 
 
+    
     protected void Awake()
     {
         if (Instance == null)
@@ -28,7 +29,10 @@ public class Car : MonoBehaviour
     protected void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        //ABSTRACTION
         SetCenterOfMass();
+        SetHorsePower();
+          
     }
 
     protected void Update()
@@ -38,7 +42,7 @@ public class Car : MonoBehaviour
     //use fixedUpdate() for movement and for physics related functions.
     protected void FixedUpdate()
     {
-        //ABSTRACTION
+        
        
             HandleDriving();
     }
@@ -58,32 +62,20 @@ public class Car : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         // we move the vehicle forward
-        // playerRb.AddRelativeForce(Vector3.forward * horsePower * verticalInput);
+       
         foreach (Wheel w in allWheels)
         {
             w.Steer(horizontalInput);
             w.Accelerate(verticalInput * horsePower);
             w.UpdatePosition();
         }
-     //   transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+     
     }
-    
-   // protected bool IsOnGround()
-   // {
-     //   WheelsOnGround = 0;
-     //   foreach (WheelCollider wheel in allWheels)
-      //  {
-     ///       if (wheel.isGrounded)
-     //       {
-      //          WheelsOnGround++;
-      //      }
-     //   }
-     //   if (WheelsOnGround >= 2)
-     //   {
-     //       return true;
-    //    } else
-    //    {
-    //        return false;
-    //    }
-   // }
+
+    public virtual void SetHorsePower()
+    {
+        //car Default
+        horsePower = 9375f;
+    }
+
 }

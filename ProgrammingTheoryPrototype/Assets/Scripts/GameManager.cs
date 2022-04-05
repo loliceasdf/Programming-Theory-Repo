@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
+    //ENCAPSULATION
     public static GameManager Instance { get; private set; }
    public int selectedCar;
     List<GameObject> cars = new List<GameObject>();
