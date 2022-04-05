@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    public bool powered = false;
-    public float maxAngle = 90f;
-    public float offset = 0f;
+    [SerializeField] bool powered = false;
+    [SerializeField] float maxAngle = 90f;
+    [SerializeField] float offset = 0f;
 
     private float turnAngle;
     private WheelCollider wcol;

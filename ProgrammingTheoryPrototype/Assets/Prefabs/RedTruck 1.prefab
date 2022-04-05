@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 425018498516776150}
   - component: {fileID: 425018498516776149}
   - component: {fileID: 425018498516776148}
-  - component: {fileID: 425018498516776147}
+  - component: {fileID: -6906460067102395698}
   m_Layer: 0
   m_Name: RedTruck 1
   m_TagString: Untagged
@@ -181,7 +181,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &425018498516776147
+--- !u!114 &-6906460067102395698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,11 +190,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 425018498516776146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b110b2046a9ad524ea309326f7a33514, type: 3}
+  m_Script: {fileID: 11500000, guid: f51b314346db6a749a0233eca84f7011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   horsePower: 9375
-  turnSpeed: 70
   speed: 0
   allWheels:
   - {fileID: 425018499310615934}

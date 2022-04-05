@@ -9,7 +9,6 @@ public class Car : MonoBehaviour
    public static Car Instance { get; protected set; }
 
     [SerializeField] float horsePower = 20000.0f;
-    [SerializeField] float turnSpeed = 70.0f;
     [SerializeField] float speed;
     private float horizontalInput;
     private float verticalInput;
@@ -29,7 +28,7 @@ public class Car : MonoBehaviour
     protected void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        playerRb.centerOfMass = CenterOfMass.Instance.transform.localPosition;
+        SetCenterOfMass();
     }
 
     protected void Update()
@@ -42,12 +41,11 @@ public class Car : MonoBehaviour
         //ABSTRACTION
        
             HandleDriving();
-        
-            
-        
-        
     }
 
+    protected void SetCenterOfMass() { playerRb.centerOfMass = CenterOfMass.Instance.transform.localPosition;
+       
+    }
     protected void HandleRpm()
     {
         speed = Mathf.Round(playerRb.velocity.magnitude * 2.237f); // 3.6 for kph

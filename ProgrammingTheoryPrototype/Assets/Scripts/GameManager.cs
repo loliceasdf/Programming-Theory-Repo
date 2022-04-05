@@ -14,12 +14,15 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) { Instance = this; } else { Destroy(gameObject); }
+        DontDestroyOnLoad(this.gameObject);
     }
     public void SelectCar(int carId)
     {
         selectedCar = carId;
-        //TODO:Load the play scene.
+        
         SceneManager.LoadScene(1);
-        //Instantiate(cars[carId]);
+       
     }
+
+   
 }
